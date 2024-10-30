@@ -1,0 +1,12 @@
+<div>
+    <h1>Search</h1>
+    <div class="search-block">
+        <form ng-submit="search()">
+            <input type="text" ng-model="searchQuery" placeholder="Nhập nội dung tìm kiếm" required="">
+            <button title="Tìm kiếm" type="submit">Tìm</button>
+        </form>
+    </div>
+    <div ng-repeat="result in results">
+        {{ result }}
+    </div>
+</div>

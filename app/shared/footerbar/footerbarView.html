@@ -1,0 +1,143 @@
+<div class="tygh-footer clearfix" id="tygh_footer">
+    <div class="container footer-grid">
+       <div class="row">
+          <div class="span16 footer-menu" >
+             <div class="row">
+                <div class="span5 " >
+                   <div class=" width50">
+                      <ul class="text-links ">
+                         <li class="level-0">
+                            <a href="#">Hướng dẫn thanh toán</a> 
+                         </li>
+                         <li class="level-0">
+                            <a href="#">Hướng dẫn đặt hàng</a> 
+                         </li>
+                         <li class="level-0">
+                            <a href="#">Hướng dẫn mua trả góp</a> 
+                         </li>
+                      </ul>
+                   </div>
+                   <div class=" width45 float-right">
+                      <ul class="text-links ">
+                         <li class="level-0">
+                            <a href="#">Giới thiệu</a> 
+                         </li>
+                         <li class="level-0">
+                            <a href="#">Tuyển dụng</a> 
+                         </li>
+                         <li class="level-0">
+                            <a href="#">Điều khoản sử dụng</a> 
+                         </li>
+                         <li class="level-0">
+                            <a href="#">Chính sách chất lượng</a> 
+                         </li>
+                         <li class="level-0">
+                            <a href="#">Bảo mật thông tin</a> 
+                         </li>
+                      </ul>
+                   </div>
+                </div>
+                <div class="span6 " >
+                   <div class=" info_footer_right">
+                      <div class="item_footer_right">
+                         <p><strong>Showroom</strong>: <span style="color: #D50F0E; ">đường ABC, quận XYZ</span></p>
+                         <div class="callfree">Tổng đài hỗ trợ <span>(tư vấn miễn phí): 0123456789</span></div>
+                         
+                      </div>
+                   </div>
+                </div>
+                <div class="span5 my-account-grid" >
+                   <div class=" no-div">
+                      
+                      <div class="social-follow">
+                        
+                         <div class=" pagepay">
+                            <a href="/assests/images/icon/QRcode.jpg" target="_blank" title="Tiền mặt, Chuyển khoản, Thẻ ATM nội địa, Thẻ VISA, Thẻ Master">
+                               <i class="icon-tienmat"></i> <i class="icon-chuyenkhoan"></i> <i class="icon-atm"></i> <i class="icon-visa"></i> <i class="icon-master"></i>
+                            </a>
+                         </div>
+                         <a title="Facebook" aria-hidden="true" target="_blank" class="" href="#">
+                         <i class="uni-facebook facebook"></i> Fanpage
+                         </a>
+                         <a title="Youtube" aria-hidden="true" target="_blank" class="" href="#">
+                         <i class="uni-youtube twitter"></i> Youtube
+                         </a>
+                      </div>
+                   </div>
+                </div>
+             </div>
+          </div>
+    </div>
+    <!--tygh_main_container-->
+ </div>
+ <script>
+   // Get the modal
+   var modal = document.getElementById("myModal");
+ 
+   // Get the button that opens the modal
+   var btn = document.getElementById("showQrCode");
+ 
+   // Get the <span> element that closes the modal
+   var span = document.getElementsByClassName("close")[0];
+ 
+   // When the user clicks the button, open the modal 
+   btn.onclick = function(event) {
+     event.preventDefault();
+     modal.style.display = "block";
+   }
+ 
+   // When the user clicks on <span> (x), close the modal
+   span.onclick = function() {
+     modal.style.display = "none";
+   }
+ 
+   // When the user clicks anywhere outside of the modal, close it
+   window.onclick = function(event) {
+     if (event.target == modal) {
+       modal.style.display = "none";
+     }
+   }
+ </script>
+ <title>Show QR Code</title>
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Show QR Code</title>
+ <style>
+ .modal {
+ display: none; /* Hidden by default */
+ position: fixed; /* Stay in place */
+ z-index: 1; /* Sit on top */
+ padding-top: 100px; /* Location of the box */
+ left: 0;
+ top: 0;
+ width: 100%; /* Full width */
+ height: 100%; /* Full height */
+ overflow: auto; /* Enable scroll if needed */
+ background-color: rgb(0,0,0); /* Fallback color */
+ background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+ }
+ .modal-content {
+ background-color: #fefefe;
+ margin: auto;
+ padding: 20px;
+ border: 1px solid #888;
+ width: 80%;
+ max-width: 500px;
+ }
+ .close {
+ color: #aaa;
+ float: right;
+ font-size: 28px;
+ font-weight: bold;
+ }
+ .close:hover,
+ .close:focus {
+ color: black;
+ text-decoration: none;
+ cursor: pointer;
+ }
+ 
+ </style>

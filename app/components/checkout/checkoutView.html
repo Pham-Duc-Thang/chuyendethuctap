@@ -1,0 +1,229 @@
+<div class="fresh-vegetables">
+    <div class="container">
+        <h1>My Order</13>
+        <div class="row">
+            <div ng-class="col-sm-12">
+                <div class="checkout-right" style="margin-bottom: 40px;margin-left:3%">
+                    <h3 ng-show="$ctrl.productUsers.length">Total : <span>{{$ctrl.productUsers.length}} Order(s)</span></h3>
+                    <!-- <button  type="button" class="btn btn-info" ng-click="$ctrl.onAdd()">
+                <i class="glyphicon glyphicon-align-left"></i>
+            </button> -->
+            <table id="productUserCtrl" class="table table-bordered table-striped" export-table>
+                <colgroup>
+                    <col width="5%" />
+                    <col width="10%" />
+                    <col width="15%" />
+                    <col width="20%" />
+                    <col width="10%" />
+                    <col width="10%" />
+                    <col width="10%" />
+                    <col width="10%" />
+                    <col width="10%" />
+                </colgroup>
+    
+                <thead>
+                    <tr>
+                        <th>Number</th>
+                        <th>Product Name</th>
+                        <th>Picture</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                        <th>Qty</th>
+                        <th>Total Price</th>
+                        <th>Status</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody ng-repeat="order in $ctrl.productUsers">
+                    <tr class="bg-success text-center">
+                        <td colspan="8">Name: <strong style="color: slateblue;"> {{$ctrl.user.name}}</strong> Email:<strong style="color: slateblue;"> {{$ctrl.user.username}} </strong>, --- Phone number: <strong style="color: slateblue;"> {{$ctrl.user.phone}}</strong> --- Address:<strong style="color: slateblue;"> {{$ctrl.user.address}}</strong> --- Create Date: <strong style="color: slateblue;"> {{order.create_date | date:'dd/MM/yyyy'}} </strong></td>
+                        <td> <a href="" ng-click="$ctrl.deleteproductUsers(user)">
+                        <span class="fa fa-trash"> <span>Delete</span></span></a>
+                        </td>
+                    </tr>
+                    <tr ng-repeat="product in order.product">
+                        <td>{{$index +1}}</td>
+                        <td>{{product.name}}</td>
+                        <td><img width="120px" src="{{product.img}}" alt=""></td>
+                        <td>
+                            <p>{{product.content}}</p>
+                        </td>
+                        <td>{{product.price}}000đ</td>
+                        <td>{{product.qty}}</td>
+                        <td>{{product.sum}}000đ</td>
+                        <td>new</td>
+                        <td></td>
+                    </tr>
+    
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>Number</th>
+                        <th>Product Name</th>
+                        <th>Picture</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                        <th>Qty</th>
+                        <th>Total Price</th>
+                        <th>Status</th>
+                        <th>Delete</th>
+                    </tr>
+                </tfoot>
+            </table>
+            <!-- QR Code Button -->
+           <div class="pagepayr">
+            <a href="#" id="showQrCode" title="QR Code">
+             Chuyển khoản
+            </a>
+         </div>
+         
+         <!-- The Modal -->
+         <div id="myModal" class="modal">
+            <div class="modal-content">
+            <span class="close">&times;</span>
+            <img src="/assests/images/icon/QRcode.jpg" alt="QR Code" style="width:100%">
+            </div>
+                </div>
+            </div>
+             <div class="checkout-right" style="margin-bottom: 40px;margin-top: 110px;"ng-show="!$ctrl.show">
+            <div class="col-md-4 checkout-left-basket">
+                <h4>feedback</h4>
+            <div class="timetable_sub">
+                <div class="form-group">
+                  <label>Title : </label>
+                  <input class="form-control" ng-model="$ctrl.feedBack.title" placeholder="Title">
+                </div>
+                <div class="form-group">
+                  <label>Note : </label>
+                  <textarea class="form-control" rows="4" ng-model="$ctrl.Modal.feedBack.note"placeholder="note"></textarea>
+                </div>
+                <div class="form-group">
+                <button type="submit" class="btn btn-primary" ng-click = "$ctrl.Send()"style="width:50%">Send</button>
+                <button type="button" class="btn btn-warning" ng-click = "$ctrl.Cancel()"style="float:right;width:100px">Cancel</button>
+                </div>
+            </div>
+            
+        </div>
+    </div> 
+        </div>
+    </div>
+</div>
+<script>
+    // Get the modal
+    var modal = document.getElementById("myModal");
+  
+    // Get the button that opens the modal
+    var btn = document.getElementById("showQrCode");
+  
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+  
+    // When the user clicks the button, open the modal 
+    btn.onclick = function(event) {
+      event.preventDefault();
+      modal.style.display = "block";
+    }
+  
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
+  
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
+  <a title="Facebook" aria-hidden="true" target="_blank" class="" href="#">
+  <i class="uni-facebook facebook"></i> Fanpage
+  </a>
+  <a title="Youtube" aria-hidden="true" target="_blank" class="" href="#">
+  <i class="uni-youtube twitter"></i> Youtube
+  </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<title>Show QR Code</title>
+<style>
+.modal {
+display: none; /* Hidden by default */
+position: fixed; /* Stay in place */
+z-index: 1; /* Sit on top */
+padding-top: 100px; /* Location of the box */
+left: 0;
+top: 0;
+width: 100%; /* Full width */
+height: 100%; /* Full height */
+overflow: auto; /* Enable scroll if needed */
+background-color: rgb(0,0,0); /* Fallback color */
+background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+.modal-content {
+background-color: #fefefe;
+margin: auto;
+padding: 20px;
+border: 1px solid #888;
+width: 80%;
+max-width: 500px;
+}
+.close {
+color: #aaa;
+float: right;
+font-size: 28px;
+font-weight: bold;
+}
+.close:hover,
+.close:focus {
+color: black;
+text-decoration: none;
+cursor: pointer;
+}
+.pagepayr a {
+display: inline-block;
+padding: 20px 40px; /* Increase padding for a larger button */
+font-size: 24px; /* Increase font size */
+color: #007BFF; /* Blue color */
+text-align: center;
+text-decoration: none;
+border: 2px solid #007BFF; /* Blue border */
+border-radius: 5px;
+transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+.pagepayr a:hover {
+background-color: #007BFF; /* Blue background on hover */
+color: white; /* Change text color to white on hover */
+border-color: #007BFF; /* Blue border on hover */
+}
+</style>
+<!--tygh_main_container-->
+</div>
+                </div>
+            </div>
+             <div class="checkout-right" style="margin-bottom: 40px;margin-top: 110px;"ng-show="!$ctrl.show">
+            <div class="col-md-4 checkout-left-basket">
+                <h4>feedback</h4>
+            <div class="timetable_sub">
+                <div class="form-group">
+                  <label>Title : </label>
+                  <input class="form-control" ng-model="$ctrl.feedBack.title" placeholder="Title">
+                </div>
+                <div class="form-group">
+                  <label>Note : </label>
+                  <textarea class="form-control" rows="4" ng-model="$ctrl.Modal.feedBack.note"placeholder="note"></textarea>
+                </div>
+                <div class="form-group">
+                <button type="submit" class="btn btn-primary" ng-click = "$ctrl.Send()"style="width:50%">Send</button>
+                <button type="button" class="btn btn-warning" ng-click = "$ctrl.Cancel()"style="float:right;width:100px">Cancel</button>
+                </div>
+            </div>
+            
+        </div>
+    </div> 
+        </div>
+    </div>
+</div>

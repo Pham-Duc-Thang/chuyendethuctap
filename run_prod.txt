@@ -1,0 +1,7 @@
+Mở command trong thư mục E:\mean
+Run : nodemon app.js
+Truy cập : localhost:3000
+
+tài khoản admin :
+phamducthang13579@gmail.com
+12345678

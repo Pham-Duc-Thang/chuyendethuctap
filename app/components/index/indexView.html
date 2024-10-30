@@ -1,0 +1,126 @@
+<div class="tygh-content clearfix top-brands">
+  <div class="container content-grid">
+    <div class="row">
+      <div class="span16 home-header-banner">
+        <!-- Banner Section Start -->
+        <div class="banner-carousel">
+          <div class="slides">
+            <div class="slide">
+              <img src="../../../images/images/path-to-image1.jpg" alt="Banner 1">
+            </div>
+            <div class="slide">
+              <img src="../../../images/images/path-to-image2.jpg" alt="Banner 2">
+            </div>
+            <div class="slide">
+              <img src="../../../images/images/path-to-image3.jpg" alt="Banner 3">
+            </div>
+          </div>
+        </div>
+        <!-- Banner Section End -->
+
+        <div class="sidebox-wrapper-nhansam">
+          <h3 class="sidebox-title_nhansam">
+            <span>Điện thoại nổi bật</span>
+          </h3>
+          <div class="viewallcat">
+            <ul>
+            </ul>
+          </div>
+          <div class="sidebox-body_nhansam">
+            <div class="grid_product_list_column clearfix">
+              <div class="product_list_column5" ng-repeat="data in data">
+                <div class="grid-list__item">
+                  <div class="grid-list__image">
+                    <label class="label_installment">Trả góp 0%</label>
+                    <a href="" title="{{data.name}}">
+                      <img class="ty-pict load_scroll cm-image" data-src="{{data.img}}" alt="trang-cu" title="trang-cu" src="/assests/images/empty.jpg" width="180px" height="180px"/>
+                    </a>
+                  </div>
+                  <div class="grid-list__item-name">
+                    <a ui-sref="home.product({id: data._id})" class="product-title">{{data.name}}</a>    
+                  </div>
+                  <div class="grid-list__price">
+                    <span class="price">
+                      <span class="price-num">{{data.price}}</span>&nbsp;
+                      <span class="price-num" style="text-decoration: underline;">đ</span>
+                    </span>
+                    <input type="button" class="btn btn-success" value="ADD TO CART" ng-click="addShop(data._id)" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Sản Phẩm Giá Sốc Section Start -->
+        <div class="sidebox-wrapper-nhansam homepage-on-sale deal-cuoituan">
+          <h3 class="sidebox-title_nhansam">
+            <span>Sản Phẩm Giá Sốc</span>
+          </h3>
+          <div class="sidebox-body_nhansam">
+            <div id="scroll_list_45" class="owl-carousel products_scroll_list">
+              <div class="scroller-list__item">
+                <div class="grid-list__item">
+                  <div class="grid-list__image">
+                    <span class="label_cty">Công ty</span>
+                    <label class="label_installment">Trả góp 0%</label>
+                    <a href="/oppo-reno2-256gb" title="Oppo Reno2 (8GB | 256GB) Công Ty">
+                      <img class="ty-pict lazyOwl cm-image" data-src="uploads/imgs/1582824269098_oppo.png" alt="deb" title="deb" src="assests/images/empty.jpg" width="180px"/>
+                    </a>
+                  </div>
+                  <div class="grid-list__item-name">
+                    <a href="/oppo-reno2-256gb" class="product-title">Oppo Reno2 (8GB | 256GB) Công Ty</a>    
+                  </div>
+                  <div class="grid-list__price">
+                    <span class="price">
+                      <span class="price-num">8.990.000</span>&nbsp;
+                      <span class="price-num" style="text-decoration: underline;">đ</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Sản Phẩm Giá Sốc Section End -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CSS cho Banner Carousel -->
+<style>
+  .banner-carousel {
+    position: relative;
+    width: 100%; /* Giữ nguyên chiều rộng 100% */
+    height: 100%;
+    max-height: 400px; /* Có thể thay đổi để phù hợp với chiều cao mong muốn */
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+
+  .slides {
+    display: flex;
+    width: 100%; /* Giữ nguyên 300% để phù hợp với 3 slide */
+    animation: slide-animation 9s infinite;
+  }
+
+  .slide {
+    width: 100%;
+    flex-shrink: 0;
+  }
+
+  .slide img {
+    width: 100%;
+    height: auto;
+  }
+
+  @keyframes slide-animation {
+    0% { transform: translateX(0); }
+    33% { transform: translateX(-100%); }
+    66% { transform: translateX(-200%); }
+    100% { transform: translateX(0); }
+  }
+</style>

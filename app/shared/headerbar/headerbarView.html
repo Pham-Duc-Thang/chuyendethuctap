@@ -1,0 +1,181 @@
+<!-- Begin Header -->
+<div class="header">
+   <!-- Logo Section -->
+   <div class="top-logo float-left">
+     <div class="logo-container">
+       <a href="/">
+         <span style="font-size: 22px; color: white; font-weight: bold;">LapTrinh Phone</span>
+       </a>
+     </div>
+   </div>
+
+   <!-- Search Section -->
+   <script src="" defer></script>
+   <div class="search-block">
+    <!-- Include the content of searchView.html here -->
+    <form action="../search/searchCtrl.js" method="get">
+      <input type="text" name="title" placeholder="Nhập nội dung tìm kiếm" required="">
+      <button title="Tìm kiếm" type="submit">Tìm</button>
+    </form>
+  </div>
+   <!-- Login and Cart Section -->
+   <div class="header-right">
+     <div class="top-cart-content" style="padding-right: 50px;">
+       <div class="dropdown-box" id="cart_status_135">
+         <a href="" ng-click="headerbarCtrl.showModal()" id="sw_dropdown_135" class="popup-title cm-combination top-icon-cart empty">
+           <i class="icon-basket"></i>
+           <span class="minicart-title">
+             <span class="basket-cart-amount" id="cart-qty"></span>
+           </span>
+         </a>
+       </div>
+     </div>
+
+     <!-- Login -->
+     <div class="dropdown profile_details_drop" style="padding-right: 50px;">
+       <a class="dropdown-toggle pointer" data-toggle="dropdown" style="cursor: pointer; font-size: 18px;" ng-click="headerbarCtrl.init()">
+         <i class="fa fa-user" aria-hidden="true" ng-show="!headerbarCtrl.getUserStatus"></i>
+         <img src="/assests/images/user.png" ng-show="headerbarCtrl.getUserStatus" style="height: 46px; width: 40px; padding-bottom:7px;" class="img-circle">
+         {{headerbarCtrl.users}} <span class="caret"></span>
+       </a>
+       <ul class="dropdown-menu" ng-show="!headerbarCtrl.getUserStatus">
+         <li><a ng-click="headerbarCtrl.showLogin()" href="">Login</a></li>
+         <li><a ng-click="headerbarCtrl.showRegister()" href="">Register</a></li>
+       </ul>
+       <ul class="dropdown-menu" ng-show="headerbarCtrl.getUserStatus">
+         <li><a ng-click="headerbarCtrl.logouts()" href="">Logout</a></li>
+         <li ng-show="headerbarCtrl.checkAdmin"><a ui-sref="admin">Admin</a></li>
+         <li><a ui-sref="home.checkout">My Order</a></li>
+       </ul>
+     </div>
+   </div>
+</div>
+
+<!-- Horizontal Navigation Menu -->
+<div class="navbar">
+   <ul class="nav-menu">
+     <li><a href="/iphone">IPhone</a></li>
+     <li><a href="/tablet">Tablet</a></li>
+     <li><a href="/watch">Watch</a></li>
+     <li><a href="/hangcu">Hàng cũ giá rẻ</a></li>
+     <li>
+      <a ui-sref="home.posts" class="title_list_item">
+      CÔNG NGHỆ
+      </a>
+   </li>
+
+   </ul>
+</div>
+
+<!-- Styles for Header and Menu -->
+<style>
+   .header {
+     background-color: #0088FF;
+     padding: 10px 20px;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+   }
+
+   .header-right {
+     display: flex;
+     align-items: center;
+   }
+
+   .top-logo a {
+     color: white;
+     text-decoration: none;
+     font-weight: bold;
+   }
+
+   .search-block form {
+     display: flex;
+     justify-content: center;
+     width: 400px; /* Adjust width of search form */
+   }
+
+   .search-block input {
+     flex-grow: 1;
+     padding: 6px;
+     font-size: 12px;
+   }
+
+   .search-block button {
+     background-color: #0077DD;
+     color: white;
+     border: none;
+     padding: 4px 8px;
+     cursor: pointer;
+   }
+
+   .navbar {
+     background-color: white;
+     padding: 10px 0;
+     text-align: center;
+   }
+
+   .nav-menu {
+     list-style: none;
+     padding: 0;
+     margin: 0;
+   }
+
+   .nav-menu li {
+     display: inline-block;
+     margin: 0 15px;
+   }
+
+   .nav-menu a {
+     text-transform: uppercase;
+     text-decoration: none;
+     color: black;
+     font-size: 14px;
+     padding: 10px;
+   }
+
+   .nav-menu a:hover {
+     color: white;
+     background-color: #0077DD;
+     padding: 10px 15px;
+     border-radius: 5px;
+   }
+</style>
+
+<!-- Server-side code for handling search -->
+<script>
+app.get('/search/:query', (req, res) => {
+    pool.getConnection((err, connection) => {
+        if(err) throw err
+        console.log(`connected as id ${connection.threadId}`)
+
+        search = req.params.query
+        connection.query("SELECT * FROM products WHERE name LIKE '%${search}%' ", (err, rows) => {
+            connection.release() // return the connection to pool
+
+            if(!err) {
+                res.send(rows)
+            } else {
+                console.log(err)
+            }
+
+        })
+    })
+})
+</script>
+<style>
+  .modal-backdrop {
+      background-color: transparent; /* Remove the dark backdrop */
+      z-index: 1040; /* Ensure backdrop is behind modal */
+  }
+  .modal {
+      z-index: 1050; /* Ensure modal is on top */
+  }
+  .modal-content {
+      pointer-events: all; /* Ensure clicks are recognized in modal content */
+  }
+  .modal-backdrop {
+    pointer-events: none; /* Allow clicks to pass through backdrop */
+  }
+  
+</style>
+
